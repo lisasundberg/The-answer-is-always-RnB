@@ -1,0 +1,30 @@
+/*----------------------- RESET ----------------------*/
+html, body, div {
+	padding:0;
+	margin:0;
+}
+
+h1, h2, h3, p {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+
+ul {
+	-webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-padding-start: 0;
+}
+
+
+
+body {
+	font-family: $font__main;
+//	color:blue;
+//	background: #f8f8f8;
+	color: #ff2881;
+    background: #f2e0e0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family:$font__headings;
+}
