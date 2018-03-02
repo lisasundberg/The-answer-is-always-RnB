@@ -15,16 +15,54 @@ ul {
     -webkit-padding-start: 0;
 }
 
+/*----------------------- TYPOGRAPHY ----------------------*/
+
+h1, h2, h3, h4, h5, h6 {
+	font-family:$font__headings;
+}
 
 
+/*----------------------- INPUTS / BUTTONS ----------------------*/
+
+input[type="text"] {
+	border:0;
+	outline:0;
+	background: #ff2881;
+	padding:1em;
+	width:50%;
+	margin:40px auto;
+	color:#f2e0e0;
+	font-family: $font__main;
+	font-weight:500;
+	font-size:18px;
+	text-align: center;
+}
+
+
+/*----------------------- LAYOUT ----------------------*/
+html {
+	height:100%;
+	width:100%;
+}
 body {
+	@include flex();
+	@include content_center();
+	@include items_center();
+	height:100%;
 	font-family: $font__main;
 //	color:blue;
 //	background: #f8f8f8;
 	color: #ff2881;
     background: #f2e0e0;
+	margin:0;
+	letter-spacing: 1px;
+	line-height:180%;
+	text-align: center;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-family:$font__headings;
+.container {
+	width:100%;
+	max-width:550px;
 }
+
+

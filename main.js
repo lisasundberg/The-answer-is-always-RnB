@@ -1,5 +1,6 @@
 const searchUser = document.getElementById('searchUser');
 const apiKey = '81eb011ebdea34eb07af4188c24c4eb9';
+
 const method = 'user.getinfo';
 
 
@@ -29,60 +30,12 @@ function displayLastFmData( lastFmData ){
 	const { user } = lastFmData;
 	const lastFmInfoElement = document.getElementById('lastFmInfo');
 	let lastFmInfo = `
-		<p> ${user.name} </p>
-		<p> ${user.country}</p>
+		<p> ${user.name} from</p>
+		<p> ${user.country} has</p>
+		<p> ${user.playcount} scrobbles</p>
   	`;
   lastFmInfoElement.innerHTML = lastFmInfo;
 }
-
-
-
-
-
-
-
-
-
-// make a request to lastFM
-//function lastFM(data, callback){
-//  return request({
-//    url:`https://ws.audioscrobbler.com/2.0/?method=${method}&user=${user}&api_key=${apiKey}&format=json`,
-//    data: data,
-//    type: 'json',
-//    success: function(data){
-//      if(callback){callback(false, data)}
-//    },
-//    error: function(err){
-//      if(callback){callback(err)}
-//    }
-//  })
-//}
-//
-//// generate data for a request
-//function requestData(apiKey, user, page){
-//  return {
-//    method:method,
-//    user:user,
-//    api_key:apiKey,
-//    limit:200,
-//    page: page || 1
-//  }
-//}
-//
-//
-//// generate a list of request data objects
-//function requestList(apiKey, user, page_count){
-//  var requests = [];
-//  for(var page = 1; page <= page_count; page++){
-//    requests.push(requestData(apiKey, user, page))
-//  }
-//  return requests;
-//}
-//
-//console.log(requestList(apiKey, 'ultralisan' , 1));
-
-
-
 
 //Fetch method
 //
