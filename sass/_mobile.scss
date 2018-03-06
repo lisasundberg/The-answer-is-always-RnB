@@ -25,17 +25,20 @@ h1, h2, h3, h4, h5, h6 {
 /*----------------------- INPUTS / BUTTONS ----------------------*/
 
 input[type="text"] {
+	background: $color__dark;
 	border:0;
 	outline:0;
-	background: #ff2881;
 	padding:1em;
 	width:50%;
 	margin:40px auto;
-	color:#f2e0e0;
-	font-family: $font__main;
 	font-weight:500;
 	font-size:18px;
 	text-align: center;
+}
+input[type="text"], input[type="text"]::-webkit-input-placeholder {
+	color:$color__light;
+	font-family:$font__headings;
+	font-family: $font__headings;
 }
 
 
@@ -49,11 +52,9 @@ body {
 	@include content_center();
 	@include items_center();
 	height:100%;
+	background:$color__light;
+	color:$color__dark;
 	font-family: $font__main;
-//	color:blue;
-//	background: #f8f8f8;
-	color: #ff2881;
-    background: #f2e0e0;
 	margin:0;
 	letter-spacing: 1px;
 	line-height:180%;
@@ -63,6 +64,10 @@ body {
 .container {
 	width:100%;
 	max-width:550px;
+}
+
+#lastFmInfo {
+	height:400px;
 }
 
 

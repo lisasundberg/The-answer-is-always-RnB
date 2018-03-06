@@ -27,6 +27,7 @@ function getLastFmData( user = "ultralisan" ) {
 
 function displayLastFmData(lastFmData){
 	const { user } = lastFmData;
+	console.log(name);
 	const lastFmInfoElement = document.getElementById('lastFmInfo');
 	let lastFmInfo = `
 		<p> ${user.name} from </p>
