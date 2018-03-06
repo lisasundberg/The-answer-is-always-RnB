@@ -36,9 +36,13 @@ function displayLastFmData(lastFmData){
 //  `;
 	let lastFmInfo =
 		`
-		<img src="${tracks.track[0].image[3]['#text']}" alt="${tracks.track[0].name}">
-		<p> ${tracks.track[0].name}</p>
-		<p> ${tracks.track[0].artist.name}</p>
+		<a href="${tracks.track[0].url}" target="_blank">
+			<img src="${tracks.track[0].image[3]['#text']}" alt="${tracks.track[0].name}">
+			<p> ${tracks.track[0].name}</p>
+		</a>
+		<a href="${tracks.track[0].artist.url}" target="_blank">
+			<p> ${tracks.track[0].artist.name}</p>
+		</a>
 	`;
   lastFmInfoElement.innerHTML = lastFmInfo;
 }
