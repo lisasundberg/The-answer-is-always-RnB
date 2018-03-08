@@ -2,6 +2,8 @@ const apiKey = '81eb011ebdea34eb07af4188c24c4eb9';
 const method = 'user.getlovedtracks';
 const user = 'ultralisan';
 const input = document.getElementById('input');
+let lovedTracks = [];
+//const lovedTracksNames = [];
 
 
 input.addEventListener('change', function(){
@@ -13,18 +15,42 @@ input.addEventListener('change', function(){
 	//		var lovedTracks = json.map(lovedtracks => lovedtracks.track.name);
 
 			//Pick out all the loved track-names and add them to a separate array
-			const lovedTracks = json.lovedtracks.track;
-			const lovedTracksNames = [];
-			for(var track of lovedTracks) {
-				lovedTracksNames.push(track.name);
-			}
-			console.log(lovedTracksNames);
+			lovedTracks = json.lovedtracks.track;
+
+//			for(var track of lovedTracks) {
+//				lovedTracksNames.push(track.name);
+//			}
+			displayTracks(lovedTracks);
+			
 		}	catch(e) {
 			console.log("Data didn't load", e);
 		}
 	})(user);
 
+
+//	const outputDiv = document.getElementById('output');
+//	let outputText = `
+//	<p>The answer is</p>
+//	<p> ${lovedTracks.name[0]}</p>
+//`;
+
+//output.innerHTML = outputText;
+
 });
+
+function displayTracks(tracks){
+	const output = document.getElementById('output');
+	
+	let htmlBlock = "";
+	
+	for(const track of tracks){
+		console.log(track.name);
+		htmlBlock += `<p>${track.name}</p>`;
+	}
+	output.insertAdjacentHTML('afterbegin', htmlBlock);
+}
+
+
 
 //Math.floor((Math.random() * 100) + 1);
 

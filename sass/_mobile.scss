@@ -67,13 +67,15 @@ input[type="text"]:focus {
 html {
 	height:100%;
 	width:100%;
+	background:$color__light;
 }
 body {
 	@include flex();
 	@include content_center();
 	@include items_center();
 	height:100%;
-	background:$color__light;
+	//background: url(../images/silk.jpg);
+	background-size: cover;
 	color:$color__dark;
 	font-family: $font__main;
 	margin:0;
