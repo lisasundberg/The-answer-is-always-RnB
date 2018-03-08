@@ -4,8 +4,8 @@ const method = 'geo.gettoptracks';
 
 
 searchCountry.addEventListener('change', function(){
-  const searchValue = searchCountry.value;
-  getLastFmData(searchValue);
+	const searchValue = searchCountry.value;
+	getLastFmData(searchValue);
 })
 
 getLastFmData();
@@ -36,8 +36,11 @@ function displayLastFmData(lastFmData){
 //  `;
 	let lastFmInfo =
 		`
+		<div class="image-container">
+			<img src="${tracks.track[0].image[3]['#text']}" alt="${tracks.track[0].name}" class="thumbnail" width="300px" height="300px">
+		</div>
+		<div class="loader" id="loader"></div>
 		<a href="${tracks.track[0].url}" target="_blank">
-			<img src="${tracks.track[0].image[3]['#text']}" alt="${tracks.track[0].name}">
 			<p> ${tracks.track[0].name}</p>
 		</a>
 		<a href="${tracks.track[0].artist.url}" target="_blank">
@@ -46,6 +49,23 @@ function displayLastFmData(lastFmData){
 	`;
   lastFmInfoElement.innerHTML = lastFmInfo;
 }
+
+
+//loader shit
+
+var myVar;
+
+function myFunction() {
+    myVar = setTimeout(showPage, 3000);
+}
+
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  lastFmInfo.style.display = "block";
+}
+
+
 
 
 
