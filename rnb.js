@@ -9,17 +9,18 @@ const user = 'ultralisan';
 		var json = await response.json();
 //		var lovedTracks = json.map(lovedtracks => lovedtracks.track.name);
 		
+		//Pick out all the loved track-names and add them to a separate array
 		const lovedTracks = json.lovedtracks.track;
-		
 		const lovedTracksNames = [];
-		
 		for(var track of lovedTracks) {
 			lovedTracksNames.push(track.name);
 		}
+		console.log(lovedTracksNames);
 	}	catch(e) {
 		console.log("Data didn't load", e);
 	}
-})(user);
+})
+//(user);
 
 
 //function getLastFmData() {
