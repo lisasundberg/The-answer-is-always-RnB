@@ -73,6 +73,7 @@ body {
 	@include flex();
 	@include content_center();
 	@include items_center();
+	@include direction_column();
 	height:100%;
 	//background: url(../images/silk.jpg);
 	background-size: cover;
