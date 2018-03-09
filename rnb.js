@@ -23,9 +23,7 @@ input.addEventListener('change', function(){
 
 });
 
-
-//Math.floor((Math.random() * 100) + 1);
-
+//Select a random track
 var randomTrack = lovedTracks[Math.floor(Math.random()*lovedTracks.length)];
 
 function displayTracks(tracks){
@@ -33,8 +31,12 @@ function displayTracks(tracks){
 	let randomTrack = lovedTracks[Math.floor(Math.random()*lovedTracks.length)];
 	
 	const htmlBlock = `
-		<p>${randomTrack.name}</p>
-		<p>${randomTrack.artist.name}</p>
+		<a href="${randomTrack.url}">
+			<p>${randomTrack.name}</p>
+		</a>
+		<a href="${randomTrack.artist.url}">
+			<p>${randomTrack.artist.name}</p>
+		</a>
 	`;
 	output.innerHTML = htmlBlock;
 	
