@@ -2,13 +2,13 @@ const apiKey = '81eb011ebdea34eb07af4188c24c4eb9';
 const method = 'user.getlovedtracks';
 const user = 'ultralisan';
 const url = `https://ws.audioscrobbler.com/2.0/?method=${method}&user=${user}&api_key=${apiKey}&format=json`;
-
 const input = document.getElementById('input');
 const output = document.getElementById('output');
-
+const body = document.querySelector('body');
 let lovedTracks = [];
 
 
+//Fetch RnB-tracks from Last FM, based on ultralisan's loved tracks
 const getLovedTracks = async (username) => {
 	try {
 		await delay(1);
@@ -21,20 +21,27 @@ const getLovedTracks = async (username) => {
 	}
 }
 
-
+//After writing a question, fetch tracks from Last FM
 input.addEventListener('change', function(){
-	getLovedTracks(user);
+	input.classList.add("active");
+	if (input.value.includes('?')){
+		getLovedTracks(user);
+	} else {
+		output.innerHTML = 
+			`<p class="animate-bottom">
+				You need to write a question :-)
+			</p>`;
+	}
 });
 
-
+//Create a function to display a random song
 function displayTracks(tracks){
-	
-	let randomTrack = lovedTracks[Math.floor(Math.random()*lovedTracks.length)];
-	
-	const htmlBlock = `
-		<div class="animate-bottom">
-			<small>You asked</small>
-			<p class="question">${input.value}</p>
+	//Get random RnB-track from ultralisan's loved tracks
+	let randomTrack = tracks[Math.floor(Math.random()*tracks.length)];
+	body.classList.add("sparkle");
+	const htmlBlock = 
+		`<div class="animate-bottom">
+			<p class="answer">That's a good question – try this: </p>
 			<div class="image">
 				<img src="${randomTrack.image[3]['#text']}" alt="${randomTrack.artist.name}">
 			</div>
@@ -44,8 +51,7 @@ function displayTracks(tracks){
 			<a href="${randomTrack.artist.url}">
 				<p>${randomTrack.artist.name}</p>
 			</a>
-		</div>
-	`;
+		</div>`;
 //	const loader = `<div class="loader" id="loader"></div>`;
 //	output.innerHTML = loader;
 	output.innerHTML = htmlBlock;
@@ -55,7 +61,7 @@ function displayTracks(tracks){
 //Create a function to delay displaying the information
 function delay(seconds) {
 	return new Promise(
-	resolve => setTimeout(resolve, seconds * 1000)
+		resolve => setTimeout(resolve, seconds * 1000)
 	)
 };
 

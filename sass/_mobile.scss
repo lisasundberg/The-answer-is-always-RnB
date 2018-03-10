@@ -28,11 +28,9 @@ a {
 /*----------------------- INPUTS / BUTTONS ----------------------*/
 
 input[type="text"] {
-	background-color: /*#6525ff*/ mediumseagreen;
 	border:0;
 	outline:0;
 	padding:1em 0;
-	width:40%;
 	margin:40px auto;
 	font-weight:500;
 	font-size:18px;
@@ -42,6 +40,8 @@ input[type="text"] {
 	-moz-transition: width 1s, background-color 0.3s;
 	-o-transition: width 1s, background-color 0.3s;
     transition: width 1s background-color 0.3s;
+	background-color: #6525ff;
+	width:40%;
 }
 input[type="text"], input[type="text"]::-webkit-input-placeholder {
 	color:$color__light;
@@ -51,15 +51,20 @@ input[type="text"], input[type="text"]::-webkit-input-placeholder {
 
 input[type="text"]:focus {
 	width:100%;
-	background-color: /*$color__dark*/ skyblue;
-	-webkit-box-shadow: inset 0 0 10px #000;
-    -moz-box-shadow: inset 0 0 10px #000;
-	-o-box-shadow: inset 0 0 10px #000;
-    box-shadow: inset 0 -2px 20px rgba(0,0,0,.2);
-	-webkit-transition: width 1s, background-color 0.3s;
-	-moz-transition: width 1s, background-color 0.3s;
-	-o-transition: width 1s, background-color 0.3s;
+	background-color: $color__dark;
+//	-webkit-box-shadow: inset 0 0 10px #000;
+//    -moz-box-shadow: inset 0 0 10px #000;
+//	-o-box-shadow: inset 0 0 10px #000;
+//    box-shadow: inset 0 -2px 20px rgba(0,0,0,.2);
+	-webkit-transition: width 1s background-color 0.3s;
+	-moz-transition: width 1s background-color 0.3s;
+	-o-transition: width 1s background-color 0.3s;
     transition: width 1s background-color 0.3s;
+}
+
+.active {
+	width:100%!important;
+	background-color: $color__dark!important;
 }
 
 
@@ -70,23 +75,27 @@ html {
 	background:$color__light;
 }
 body {
-	@include flex();
-	@include content_center();
-	@include items_center();
-	@include direction_column();
+	//@include flex();
+//	@include content_center();
+//	@include items_center();
+//	@include direction_column();
 	height:100%;
-	//background: url(../images/glitter.gif);
 	color:$color__dark;
 	font-family: $font__main;
 	margin:0;
 	letter-spacing: 1px;
-	line-height:180%;
 	text-align: center;
+}
+.sparkle {
+	background-image: url(../images/glitter.gif);
+	color:#fff;
+	transition: background-image 2s;
 }
 
 .container {
+	padding-top:5em;
 	width:100%;
-	max-width:650px;
+	max-width:550px;
 	margin: auto;
 }
 
@@ -141,18 +150,18 @@ body {
 .animate-bottom {
   position: relative;
   -webkit-animation-name: animatebottom;
-  -webkit-animation-duration: .7s;
+  -webkit-animation-duration: 1s;
   animation-name: animatebottom;
-  animation-duration: .7s
+  animation-duration: 1s
 }
 
 @-webkit-keyframes animatebottom {
-  from { bottom:-50px; opacity:0 } 
+  from { bottom:-30px; opacity:0 } 
   to { bottom:0px; opacity:1 }
 }
 
 @keyframes animatebottom { 
-  from{ bottom:-50px; opacity:0 } 
+  from{ bottom:-30px; opacity:0 } 
   to{ bottom:0; opacity:1 }
 }
 
