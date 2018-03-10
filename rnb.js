@@ -31,6 +31,9 @@ function displayTracks(tracks){
 	let randomTrack = lovedTracks[Math.floor(Math.random()*lovedTracks.length)];
 	
 	const htmlBlock = `
+		<div class="image">
+			<img src="${randomTrack.image[3]['#text']}" alt="${randomTrack.artist.name}">
+		</div>
 		<a href="${randomTrack.url}">
 			<p>${randomTrack.name}</p>
 		</a>
