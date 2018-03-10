@@ -32,17 +32,19 @@ function displayTracks(tracks){
 	let randomTrack = lovedTracks[Math.floor(Math.random()*lovedTracks.length)];
 	
 	const htmlBlock = `
-		<small>You asked</small>
-		<p class="question">${input.value}</p>
-		<div class="image">
-			<img src="${randomTrack.image[3]['#text']}" alt="${randomTrack.artist.name}">
+		<div class="animate-bottom">
+			<small>You asked</small>
+			<p class="question">${input.value}</p>
+			<div class="image">
+				<img src="${randomTrack.image[3]['#text']}" alt="${randomTrack.artist.name}">
+			</div>
+			<a href="${randomTrack.url}">
+				<p>${randomTrack.name}</p>
+			</a>
+			<a href="${randomTrack.artist.url}">
+				<p>${randomTrack.artist.name}</p>
+			</a>
 		</div>
-		<a href="${randomTrack.url}">
-			<p>${randomTrack.name}</p>
-		</a>
-		<a href="${randomTrack.artist.url}">
-			<p>${randomTrack.artist.name}</p>
-		</a>
 	`;
 //	const loader = `<div class="loader" id="loader"></div>`;
 //	output.innerHTML = loader;

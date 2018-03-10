@@ -75,8 +75,7 @@ body {
 	@include items_center();
 	@include direction_column();
 	height:100%;
-	//background: url(../images/silk.jpg);
-	background-size: cover;
+	//background: url(../images/glitter.gif);
 	color:$color__dark;
 	font-family: $font__main;
 	margin:0;
@@ -142,18 +141,18 @@ body {
 .animate-bottom {
   position: relative;
   -webkit-animation-name: animatebottom;
-  -webkit-animation-duration: 1s;
+  -webkit-animation-duration: .7s;
   animation-name: animatebottom;
-  animation-duration: 1s
+  animation-duration: .7s
 }
 
 @-webkit-keyframes animatebottom {
-  from { bottom:-100px; opacity:0 } 
+  from { bottom:-50px; opacity:0 } 
   to { bottom:0px; opacity:1 }
 }
 
 @keyframes animatebottom { 
-  from{ bottom:-100px; opacity:0 } 
+  from{ bottom:-50px; opacity:0 } 
   to{ bottom:0; opacity:1 }
 }
 
