@@ -28,28 +28,30 @@ input.addEventListener('change', function(){
 		getLovedTracks(user);
 	} else {
 		output.innerHTML = 
-			`<p class="animate-bottom">
+			`<p class="animate-bottom alert">
 				You need to write a question :-)
 			</p>`;
 	}
 });
 
+
 //Create a function to display a random song
 function displayTracks(tracks){
 	//Get random RnB-track from ultralisan's loved tracks
 	let randomTrack = tracks[Math.floor(Math.random()*tracks.length)];
-	body.classList.add("sparkle");
+	
 	const htmlBlock = 
-		`<div class="animate-bottom">
-			<p class="answer">That's a good question – try this: </p>
-			<div class="image">
+		`<div>
+			<div id="image" class="animate-bottom image-container">
 				<img src="${randomTrack.image[3]['#text']}" alt="${randomTrack.artist.name}">
+				<small class="answer">The answer is </small>
 			</div>
+			
 			<a href="${randomTrack.url}">
-				<p>${randomTrack.name}</p>
+				<p class="animate-bottom">${randomTrack.name}</p>
 			</a>
 			<a href="${randomTrack.artist.url}">
-				<p>${randomTrack.artist.name}</p>
+				<p class="animate-bottom">${randomTrack.artist.name}</p>
 			</a>
 		</div>`;
 //	const loader = `<div class="loader" id="loader"></div>`;
@@ -65,8 +67,6 @@ function delay(seconds) {
 	)
 };
 
-//<blockquote class="embedly-card"><h4><a href="https://www.last.fm/music/Jhen%C3%A9+Aiko/_/Sativa">Jhené Aiko - Sativa</a></h4><p>Watch the video for Sativa by Jhené Aiko for free, and see the artwork, lyrics and similar artists.</p></blockquote>
-//<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
 
 
 

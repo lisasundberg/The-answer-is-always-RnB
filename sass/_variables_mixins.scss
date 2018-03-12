@@ -1,15 +1,21 @@
 $color__light: #ffe4da;
 $color__dark: #dc1342;
 
-//$color__bg--dark: #bcbcbc;
-//$color__text--dark: #222;
-//$color__text--light: #f6f6f6;
+$color__bg: #facfe9;
+$color__text--paragraph: rgba(0,0,0,.8);
+$color__text--light: #facfe9;
 //
 //$color__btn--dark: #222;
 //
+$boxshadow__small: 10px 10px 30px rgba(0,0,0,.1);
+$boxshadow__large: 10px 10px 50px rgba(0,0,0,.2);
 
-$font__headings: 'Helvetica', 'Arial', sans-serif;
-$font__main: 'Helvetica', 'Arial', sans-serif;
+//font-family: 'Karla', sans-serif;
+
+
+$font__headings: 'Sanchez', 'Helvetica', 'Arial', serif;
+//$font__main: 'Circular Std', 'Helvetica', 'Arial', sans-serif;
+$font__main: 'Karla', 'Helvetica', 'Arial', sans-serif;
 
 //TRANSITIONS
 @mixin fadeIn {
