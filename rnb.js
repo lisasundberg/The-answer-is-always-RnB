@@ -50,15 +50,14 @@ function displayTracks(tracks){
 		`<div>
 			<div id="image" class="animate-bottom image-container">
 				<img src="${randomTrack.image[3]['#text']}" alt="${randomTrack.artist.name}">
-				<small class="answer">The answer is </small>
 			</div>
+
+			<small class="answer">The answer is </small>
 			
-			<a href="${randomTrack.url}">
-				<p class="animate-bottom track">${randomTrack.name}</p>
-			</a>
-			<a href="${randomTrack.artist.url}">
-				<p class="animate-bottom artist">${randomTrack.artist.name}</p>
-			</a>
+			<p class="animate-bottom track"><a href="${randomTrack.url}">${randomTrack.name}</a></p>
+			
+			<p class="animate-bottom artist">by <a href="${randomTrack.artist.url}">${randomTrack.artist.name}</a></p>
+			
 		</div>`;
 	
 	output.innerHTML = htmlBlock;

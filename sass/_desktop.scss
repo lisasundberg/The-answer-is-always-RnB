@@ -1,4 +1,4 @@
 body {
 	background: url(../images/satin-bg-desktop.png);
-	background-size: cover;
+	@include direction_row();
 }

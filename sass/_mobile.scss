@@ -42,15 +42,21 @@ a {
 
 small {
 	font-family:$font__headings;
-	color: $color__text--light;
-	font-size:1rem;
+	font-size:.8rem;
 	font-style:italic;
 	font-weight: 400i;
+	text-transform: uppercase;
+}
+
+input {
+	color:$color__text--paragraph;
+	font-family:$font__headings;
+	letter-spacing: 2px;
 }
 
 .intro {
-	font-size: 1.8rem;
-	line-height: 2.4rem;
+	font-size: 1.5rem;
+	line-height: 2.1rem;
 }
 
 
@@ -63,7 +69,6 @@ input[type="text"] {
 	outline:0;
 	padding:1em 0;
 	margin:40px auto;
-	font-weight:500;
 	font-size:1rem;
 	text-align: center;
 	border-radius: 5px;
@@ -71,18 +76,19 @@ input[type="text"] {
 	-moz-transition: width 1s, background-color 0.3s;
 	-o-transition: width 1s, background-color 0.3s;
     transition: width 1s background-color 0.3s;
-	background-color: #bdd9fc;
+	background-color: $color__theme--2;
 	width:50%;
 }
-input[type="text"], input[type="text"]::-webkit-input-placeholder {
+
+input[type="text"]::-webkit-input-placeholder {
 	color:$color__text--paragraph;
-	font-family:$font__headings;
 	text-transform: uppercase;
-	letter-spacing: 2px;
+	font-size: .8rem;
 }
+
 input[type="text"]:focus {
 	width:100%;
-	background-color: #facfe9;
+	background-color: $color__theme--1;
 	-webkit-transition: width 1s background-color 0.3s;
 	-moz-transition: width 1s background-color 0.3s;
 	-o-transition: width 1s background-color 0.3s;
@@ -91,7 +97,7 @@ input[type="text"]:focus {
 
 .active {
 	width:100%!important;
-	background-color: #facfe9!important;
+	background-color: $color__theme--1!important;
 }
 
 
@@ -102,11 +108,12 @@ input[type="text"]:focus {
 html {
 	height:100%;
 	width:100%;
-	background:#b3d4fc;
+	background:$color__theme--2;
 }
 
 body {
 	@include flex();
+	@include direction_column();
 	@include content_center();
 	@include items_center();
 	width: 100%;
@@ -120,16 +127,16 @@ body {
 }
 
 .container, .output{
-	margin:1rem 4rem;
+	margin: 5%;
 }
 
 .container {
 	padding:4rem;
 	width:100%;
-	max-width:400px;
+	max-width:350px;
 	background: #fff;
-	box-shadow: $boxshadow__large;
 	color:$color__text--paragraph;
+	box-shadow: $boxshadow__large;
 }
 
 .output {
@@ -139,13 +146,25 @@ body {
 	width: 100%;
     max-width: 400px;
 	>div:not(.loader) {
-		background: $color__bg;
+		background: $color__theme--1;
+		box-shadow: $boxshadow__large;
+		padding: 0 0 4rem;
 	}
 	p {
 		font-family: $font__headings;
 	}
-	small {
-		font-family: $font__main;
+	.answer {
+		color: rgba(0,0,0,.5);
+		text-transform: uppercase;
+		font-style: normal;
+	}
+	.track {
+		font-size: 2.5rem;
+		font-style: italic;
+		margin: 1rem auto 1.5rem;
+	}
+	.artist {
+		font-size: 1rem;
 	}
 	.image-container {
 		padding: 2rem;
@@ -157,18 +176,13 @@ body {
 			margin: 0 2rem;
 			transition: opacity 0.6s ease;
 		}
-		.track {
-			font-size:2rem;
-		}
-		.artist {
-			font-size: 1rem;
-		}
 	}
 }
 
 .alert {
 	padding:2rem;
 	box-shadow:$boxshadow__small;
+	background: $color__theme--1;
 }
 
 
@@ -178,7 +192,7 @@ body {
 
 .loader {
 	border: 12px solid #fff;
-    border-top: 12px solid $color__text--light;
+    border-top: 12px solid $color__theme--1;
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -221,9 +235,9 @@ body {
 
 
 @keyframes zoom {
-  0%   { background-size: 100% auto; }
-  50% { background-size: 105% auto; }
-  100% { background-size: 100% auto; }
+  0%   { background-size: 100% 100%; }
+  50% { background-size: 105% 105%; }
+  100% { background-size: 100% 100%; }
 }
 body {
 	animation: zoom 17s ease infinite;
