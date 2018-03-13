@@ -27,10 +27,26 @@ html {
 	font-size: 14px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1 {
+	margin-top:-150px!important;
+}
+.theanswer {
+	font-family: $font__headings;
+	font-size: 1.2rem;
+}
+.rnb {
+	font-family: $font__main;
+	font-size:7rem;
+	line-height:7rem;
+	display:block;
+	text-align:center;
+	color:$color__theme--1;
+	text-shadow: 7px 7px 0 $color__text--paragraph;
+}
+
+
+h2, h3, h4, h5, h6 {
 	font-family:$font__headings;
-	font-style:italic;
-	font-weight: 400i;
 }
 p {
 	font-family: $font__main;
@@ -60,6 +76,8 @@ input {
 }
 
 
+
+
 /*********************************
 ******** INPUTS / BUTTONS ********
 **********************************/
@@ -78,6 +96,11 @@ input[type="text"] {
     transition: width 1s background-color 0.3s;
 	background-color: $color__theme--2;
 	width:50%;
+	cursor:pointer;
+	&:hover {
+		width:54%;
+		transition: width .2s;
+	}
 }
 
 input[type="text"]::-webkit-input-placeholder {
@@ -133,7 +156,7 @@ body {
 .container {
 	padding:4rem;
 	width:100%;
-	max-width:350px;
+	max-width:330px;
 	background: #fff;
 	color:$color__text--paragraph;
 	box-shadow: $boxshadow__large;
@@ -145,10 +168,12 @@ body {
 	@include items_center();
 	width: 100%;
     max-width: 400px;
+	
 	&>div:not(.loader) {
 		background: $color__theme--1;
 		box-shadow: $boxshadow__large;
 		padding: 0 0 4rem;
+		word-wrap: break-word;
 	}
 	p {
 		font-family: $font__headings;
