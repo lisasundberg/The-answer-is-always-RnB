@@ -8,10 +8,10 @@ const body = document.querySelector('body');
 let lovedTracks = [];
 
 
-//Fetch RnB-tracks from Last FM, based on ultralisan's loved tracks
+// Create the function that fetches tracks ultralisan's loved tracks from Last FM
 const getLovedTracks = async (username) => {
 	try {
-		await delay(1);
+		await delay(2);
 		var response = await fetch(url);
 		var json = await response.json();
 		lovedTracks = json.lovedtracks.track;
@@ -21,9 +21,14 @@ const getLovedTracks = async (username) => {
 	}
 }
 
-//After writing a question, fetch tracks from Last FM
+// When writing a question, call the getLovedTracks-function
 input.addEventListener('change', function(){
+	
+	const loader = `<div class="loader" id="loader"></div>`;
+	output.innerHTML = loader;
+	
 	input.classList.add("active");
+	
 	if (input.value.includes('?')){
 		getLovedTracks(user);
 	} else {
@@ -35,9 +40,10 @@ input.addEventListener('change', function(){
 });
 
 
-//Create a function to display a random song
+//Create a function to randomize and display a song
 function displayTracks(tracks){
-	//Get random RnB-track from ultralisan's loved tracks
+	
+	//Get random RnB-track from loved tracks
 	let randomTrack = tracks[Math.floor(Math.random()*tracks.length)];
 	
 	const htmlBlock = 
@@ -48,14 +54,13 @@ function displayTracks(tracks){
 			</div>
 			
 			<a href="${randomTrack.url}">
-				<p class="animate-bottom">${randomTrack.name}</p>
+				<p class="animate-bottom track">${randomTrack.name}</p>
 			</a>
 			<a href="${randomTrack.artist.url}">
-				<p class="animate-bottom">${randomTrack.artist.name}</p>
+				<p class="animate-bottom artist">${randomTrack.artist.name}</p>
 			</a>
 		</div>`;
-//	const loader = `<div class="loader" id="loader"></div>`;
-//	output.innerHTML = loader;
+	
 	output.innerHTML = htmlBlock;
 }
 
@@ -66,7 +71,6 @@ function delay(seconds) {
 		resolve => setTimeout(resolve, seconds * 1000)
 	)
 };
-
 
 
 
