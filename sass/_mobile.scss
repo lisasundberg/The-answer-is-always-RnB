@@ -145,7 +145,7 @@ body {
 	@include items_center();
 	width: 100%;
     max-width: 400px;
-	>div:not(.loader) {
+	&>div:not(.loader) {
 		background: $color__theme--1;
 		box-shadow: $boxshadow__large;
 		padding: 0 0 4rem;
@@ -170,11 +170,35 @@ body {
 		padding: 2rem;
 		margin-top: -4rem;
 		display: inline-block;
-		z-index:2;
 		img {
 			box-shadow:$boxshadow__small;
 			margin: 0 2rem;
-			transition: opacity 0.6s ease;
+		}
+		.play-button {
+			border-radius: 50%;
+			width:60px;
+			height:60px;
+			background: $color__theme--1;
+			color:#fff;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			box-shadow:$boxshadow__small;
+			@include flex();
+			@include content_center();
+			@include items_center();
+			transition: width .2s, height .2s;
+			&:hover {
+				width:64px;
+				height:64px;
+				transition: width .2s, height .2s;
+			}
+			svg {
+				width: 30%;
+    			height: 50%;
+				margin-right:-3px;
+			}
 		}
 	}
 }

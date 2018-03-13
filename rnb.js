@@ -11,7 +11,7 @@ let lovedTracks = [];
 // Create the function that fetches tracks ultralisan's loved tracks from Last FM
 const getLovedTracks = async (username) => {
 	try {
-		await delay(2);
+		await delay(1);
 		var response = await fetch(url);
 		var json = await response.json();
 		lovedTracks = json.lovedtracks.track;
@@ -50,13 +50,24 @@ function displayTracks(tracks){
 		`<div>
 			<div id="image" class="animate-bottom image-container">
 				<img src="${randomTrack.image[3]['#text']}" alt="${randomTrack.artist.name}">
+				<a href="${randomTrack.url}" target="_blank">
+					<div class="play-button">
+						<svg aria-hidden="true" data-prefix="fas" data-icon="play" role="img" 
+						xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+						<path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 
+						47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z" 
+						class=""></path></svg>
+					</div>
+				</a>
 			</div>
 
 			<small class="answer">The answer is </small>
+
+			<p class="animate-bottom track"><a href="${randomTrack.url}" 
+			target="_blank">${randomTrack.name}</a></p>
 			
-			<p class="animate-bottom track"><a href="${randomTrack.url}">${randomTrack.name}</a></p>
-			
-			<p class="animate-bottom artist">by <a href="${randomTrack.artist.url}">${randomTrack.artist.name}</a></p>
+			<p class="animate-bottom artist">by <a href="${randomTrack.artist.url}" 
+			target="_blank">${randomTrack.artist.name}</a></p>
 			
 		</div>`;
 	
@@ -70,7 +81,4 @@ function delay(seconds) {
 		resolve => setTimeout(resolve, seconds * 1000)
 	)
 };
-
-
-
 
