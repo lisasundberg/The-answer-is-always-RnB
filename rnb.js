@@ -17,7 +17,11 @@ const getLovedTracks = async (username) => {
 		lovedTracks = json.lovedtracks.track;
 		displayTracks(lovedTracks);
 	}	catch(error) {
-		console.log("Data didn't load", error);
+		//console.log(error);
+		output.innerHTML = 
+			`<p class="animate-bottom alert">
+				Sorry, something went wrong.
+			</p>`;
 	}
 }
 
