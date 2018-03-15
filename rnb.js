@@ -17,7 +17,6 @@ const getLovedTracks = async (username) => {
 		lovedTracks = json.lovedtracks.track;
 		displayTracks(lovedTracks);
 	}	catch(error) {
-		//console.log(error);
 		output.innerHTML = 
 			`<p class="animate-bottom alert">
 				Sorry, something went wrong.
@@ -43,6 +42,22 @@ input.addEventListener('change', function(){
 	}
 });
 
+//Create a function that fetches number of listeners for a specific track
+async function getTrackInfo(track, artist){
+	try {
+		var response = await fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=81eb011ebdea34eb07af4188c24c4eb9&artist=${artist}&track=${track}&format=json`);
+		var json = await response.json();
+		let numberOfListeners = json.track.listeners;
+		console.log(numberOfListeners); //Detta funkar: skriver ut antal lyssnare
+//			return numberOfListeners; //Detta funkar inte: skriver ut att Promiset är pending
+	} catch(error) {
+		output.innerHTML = 
+			`<p class="animate-bottom alert">
+				Sorry, something went wrong.
+			</p>`;
+	}
+}
+
 
 //Create a function to randomize and display a song
 function displayTracks(tracks){
@@ -50,6 +65,10 @@ function displayTracks(tracks){
 	//Get random RnB-track from loved tracks
 	let randomTrack = tracks[Math.floor(Math.random()*tracks.length)];
 	
+	//Get number of plays for the track by passing the track name and artist name into the function
+	numberOfListeners = getTrackInfo(randomTrack.name, randomTrack.artist.name);
+	
+	//Write out the information
 	const htmlBlock = 
 		`<div>
 			<div id="image" class="animate-bottom image-container">
