@@ -30,10 +30,12 @@ html {
 h1 {
 	margin-top:-150px!important;
 }
+
 .theanswer {
 	font-family: $font__headings;
 	font-size: 1.2rem;
 }
+
 .rnb {
 	font-family: $font__main;
 	font-size:7rem;
@@ -83,7 +85,7 @@ input {
 input[type="text"] {
 	border:0;
 	outline:0;
-	padding:1em 0 1.2em;
+	padding:1em 0;
 	margin:40px auto;
 	font-size:1rem;
 	text-align: center;
@@ -140,22 +142,18 @@ body {
 	margin:0;
 	letter-spacing: 1px;
 	text-align: center;
-	background: url(../images/satin-bg-mobile.png);
+	background: url(../images/satin-bg-desktop.png);
 	background-size:100% 100%;
 }
 
-div {
-	box-sizing: border-box;
-}
 
 .container, .output{
-	margin: 80px auto;
-	width: 100%;
-	max-width:420px;
+	margin: 0 auto 80px;
+	max-width:400px;
+	padding:2em;
 }
 
 .container {
-	padding:2em;
 	background: #fff;
 	color:$color__text--paragraph;
 	box-shadow: $boxshadow__large;
