@@ -47,8 +47,8 @@ async function getTrackInfo(track, artist) {
 		try {
 			var response = await fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=${apiKey}&artist=${artist}&track=${track}&format=json`);
 			var json = await response.json();
-			var listeners = json.track.listeners;
-			//return await json.track.listeners;
+			let numberOfListeners = json.track.listeners;
+			return numberOfListeners;
 		} catch(error) {
 			output.innerHTML = 
 				`<p class="animate-bottom alert">
@@ -64,8 +64,7 @@ async function displayTracks(tracks){
 	let randomTrack = tracks[Math.floor(Math.random()*tracks.length)];
 	
 	//Get number of plays for the track by passing the track name and artist name into the function
-	//var numberOfListeners = 
-	var numberOfListeners = await getTrackInfo(randomTrack.name, randomTrack.artist.name);
+	let numberOfListeners = await getTrackInfo(randomTrack.name, randomTrack.artist.name);
 	
 	//Write out the information
 	const htmlBlock = 
@@ -83,7 +82,7 @@ async function displayTracks(tracks){
 				</a>
 			</div>
 
-			<small class="answer">The answer is </small>
+			<small class="animate-bottom answer">Do like ${numberOfListeners} others, listen to</small>
 
 			<p class="animate-bottom track"><a href="${randomTrack.url}" 
 			target="_blank">${randomTrack.name}</a></p>
@@ -91,7 +90,6 @@ async function displayTracks(tracks){
 			<p class="animate-bottom artist">by <a href="${randomTrack.artist.url}" 
 			target="_blank">${randomTrack.artist.name}</a></p>
 
-			<small class="animate-bottom listeners">${numberOfListeners} people already tried this one</small>
 			
 		</div>`;
 	
