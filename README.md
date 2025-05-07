@@ -1,6 +1,7 @@
 # The answer is always RnB
 #### by Lisa Sundberg
-[http://theanswerisalwaysrnb.com/](http://theanswerisalwaysrnb.com/)
+
+~~[http://theanswerisalwaysrnb.com/](http://theanswerisalwaysrnb.com/)~~ [http://theanswerisalwaysrnb.lisasundberg.com/](http://theanswerisalwaysrnb.lisasundberg.com/)
 
 [https://github.com/lisasundberg/The-answer-is-always-RnB](https://github.com/lisasundberg/The-answer-is-always-RnB)
 
